@@ -1,6 +1,13 @@
 # Vedant Singh — Full-Stack MERN Portfolio
 
+[![Live Portfolio](https://img.shields.io/badge/Live%20Portfolio-vedantis--dev.vercel.app-10b981?style=for-the-badge&logo=vercel&logoColor=white)](https://vedantis-dev.vercel.app/)
+[![API Status](https://img.shields.io/badge/Backend%20API-Live%20on%20Render-46e3b7?style=for-the-badge&logo=render&logoColor=white)](https://vedant-portfolio-6twf.onrender.com/api/health)
+
 A production-grade, ultra-responsive **MERN Stack (MongoDB Atlas, Express.js, React 18, Node.js)** portfolio engineered to showcase senior full-stack development capabilities while preserving the original minimalist dark/light design tokens, Inter & JetBrains Mono typography, sticky sidebar navigation, and `⌘K` command palette.
+
+* 🌐 **Live Frontend**: [https://vedantis-dev.vercel.app](https://vedantis-dev.vercel.app/)
+* ⚡ **Live Backend API**: [https://vedant-portfolio-6twf.onrender.com](https://vedant-portfolio-6twf.onrender.com)
+* 🩺 **API Health Check**: [https://vedant-portfolio-6twf.onrender.com/api/health](https://vedant-portfolio-6twf.onrender.com/api/health)
 
 ---
 
@@ -108,7 +115,8 @@ The portfolio is deployed using a split-architecture: **Vercel** for the high-pe
    * `ADMIN_PASSWORD`: *Your owner admin password*
    * `JWT_SECRET`: *Your JWT secret key*
    * `CLIENT_URL`: `https://vedantis-dev.vercel.app` *(or your Vercel production domain)*
-5. Click **Deploy Web Service** and copy your generated Render URL (e.g. `https://vedant-portfolio-backend.onrender.com`).
+5. Click **Deploy Web Service**. Your live Render backend URL:
+   `https://vedant-portfolio-6twf.onrender.com`
 
 ---
 
@@ -120,8 +128,10 @@ The portfolio is deployed using a split-architecture: **Vercel** for the high-pe
    * **Build Command**: `npm run build`
    * **Output Directory**: `dist`
 3. Go to **Settings** → **Environment Variables**:
-   * Add: `VITE_API_URL` = `https://vedant-portfolio-backend.onrender.com` *(your Render URL from Step 1)*
+   * Add: `VITE_API_URL` = `https://vedant-portfolio-6twf.onrender.com`
 4. Go to **Deployments** and click **Redeploy**.
+5. Your live portfolio frontend URL:
+   [https://vedantis-dev.vercel.app](https://vedantis-dev.vercel.app/)
 
 ---
 

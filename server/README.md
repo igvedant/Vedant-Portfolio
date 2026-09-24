@@ -1,5 +1,8 @@
 # Vedant Portfolio — Backend REST API (MERN Stack)
 
+* ⚡ **Live Production API**: [https://vedant-portfolio-6twf.onrender.com](https://vedant-portfolio-6twf.onrender.com)
+* 🩺 **Health Check**: [https://vedant-portfolio-6twf.onrender.com/api/health](https://vedant-portfolio-6twf.onrender.com/api/health)
+
 High-performance, secure backend REST API built with **Node.js, Express, MongoDB Atlas, and Resend**.
 
 ## Features

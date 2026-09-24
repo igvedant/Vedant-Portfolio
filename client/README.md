@@ -1,5 +1,8 @@
 # Vedant Portfolio — Frontend Client (React + Vite)
 
+* 🌐 **Live Website**: [https://vedantis-dev.vercel.app](https://vedantis-dev.vercel.app/)
+* ⚡ **Connected API**: [https://vedant-portfolio-6twf.onrender.com](https://vedant-portfolio-6twf.onrender.com)
+
 Modern, ultra-fast frontend built with **React 18 and Vite**, strictly preserving the shadcn/ui-inspired minimalism, typography (`Inter` and `JetBrains Mono`), dark/light theme, and mobile-first responsive design.
 
 ## Features
@@ -86,5 +89,6 @@ Creates an optimized production bundle in `dist/`.
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
 3. Go to **Settings** → **Environment Variables**:
-   - Add: `VITE_API_URL` = `https://your-backend.onrender.com` *(your live Render backend URL)*
+   - Add: `VITE_API_URL` = `https://vedant-portfolio-6twf.onrender.com`
 4. Go to **Deployments** and click **Redeploy**.
+5. Your live frontend will be live at: [https://vedantis-dev.vercel.app](https://vedantis-dev.vercel.app/)

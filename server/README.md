@@ -9,6 +9,7 @@ High-performance, secure backend REST API built with **Node.js, Express, MongoDB
 - **Privacy & Security**: Zero message content is logged to the server console. Messages are stored strictly in MongoDB Atlas.
 - **Owner-Locked Admin**: Access to `/api/admin` is strictly guarded by JWT signed against credentials configured in `.env` (`ADMIN_EMAIL` and `ADMIN_PASSWORD`). No public registration route exists.
 - **Production Hardened**: Equipped with `helmet` HTTP headers, `compression`, and `express-rate-limit`.
+- **CORS Configured**: Pre-configured to accept requests from localhost and all Vercel domains (`*.vercel.app`).
 
 ---
 
@@ -17,7 +18,7 @@ High-performance, secure backend REST API built with **Node.js, Express, MongoDB
 ```
 server/
 ├── config/
-│   └── db.js                    # MongoDB Atlas connection pooling
+│   └── db.js                    # MongoDB Atlas connection pooling + DNS resolver
 ├── controllers/
 │   ├── portfolioController.js   # High-speed data delivery & filters
 │   ├── contactController.js     # Form validation, DB save, and Resend mail dispatch
@@ -63,11 +64,11 @@ Set the following variables in `server/.env`:
 | `ADMIN_EMAIL` | Owner email address | `igvedant01@gmail.com` |
 | `ADMIN_PASSWORD` | Owner secret admin password | Secure custom password |
 | `JWT_SECRET` | Secret token signing key | Random 32+ character string |
-| `CLIENT_URL` | Frontend origin for CORS | `http://localhost:5173` |
+| `CLIENT_URL` | Frontend origin for CORS | `https://vedantis-dev.vercel.app` (or `http://localhost:5173`) |
 
 ---
 
-## Scripts
+## Local Development Scripts
 
 ### 1. Install Dependencies
 ```bash
@@ -89,6 +90,27 @@ npm run dev
 ```bash
 npm start
 ```
+
+---
+
+## Production Deployment on [Render.com](https://render.com) (Free)
+
+1. Create a **New Web Service** connected to your GitHub repository.
+2. Set configuration:
+   - **Root Directory**: `server`
+   - **Environment**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `node server.js`
+   - **Instance Type**: `Free`
+3. Add Environment Variables on Render dashboard:
+   - `NODE_ENV` = `production`
+   - `MONGODB_URI` = *(your MongoDB Atlas URI)*
+   - `RESEND_API_KEY` = *(your Resend API key)*
+   - `ADMIN_EMAIL` = `igvedant01@gmail.com`
+   - `ADMIN_PASSWORD` = *(your admin password)*
+   - `JWT_SECRET` = *(your JWT secret key)*
+   - `CLIENT_URL` = `https://vedantis-dev.vercel.app`
+4. Click **Deploy Web Service** and note your public Render URL.
 
 ---
 

@@ -7,6 +7,7 @@ Modern, ultra-fast frontend built with **React 18 and Vite**, strictly preservin
 - **Mobile-First Responsive Polish**: Dedicated glassmorphism mobile topbar, smooth slide-in mobile navigation drawer, and calibrated 44px+ touch targets.
 - **Pure Aesthetic Fidelity**: Seamless dark and light modes, smooth transitions, custom CSS variables, and zero visual jitter.
 - **Dynamic Projects & Live Filtering**: Projects loaded from the MongoDB Atlas REST API with instant category filtering (All, MERN, AI, Full-Stack).
+- **Environment-Aware API Layer**: Seamlessly proxies to local backend on port 5000 in development, and calls `VITE_API_URL` (Render backend) in production.
 - **Command Palette (`⌘K` / `Ctrl+K`)**: Rapid keyboard-accessible overlay for section navigation, theme toggling, email copying, and social links.
 - **Live Contact Form**: Client-side validation, instant feedback, and direct API transmission to MongoDB Atlas and Resend email alerts.
 - **Owner Control Center Modal**: Secretly accessible from ⌘K, allowing `igvedant01@gmail.com` to review submitted inquiries in real time.
@@ -24,6 +25,7 @@ client/
 │   │   │   └── AdminModal.jsx       # Owner-only message review modal
 │   │   ├── layout/
 │   │   │   ├── Header.jsx           # Top navbar with ⌘K search and theme toggle
+│   │   │   ├── DevTabHeader.jsx     # Developer tab header
 │   │   │   ├── Sidebar.jsx          # Desktop sticky sidebar with active link tracking
 │   │   │   └── MobileDrawer.jsx     # Slide-out responsive mobile drawer
 │   │   ├── sections/
@@ -46,6 +48,7 @@ client/
 │   ├── App.jsx                      # Main composition layout
 │   └── main.jsx                     # Application bootstrap
 ├── index.html                       # HTML template with Inter & JetBrains Mono
+├── vercel.json                      # Vercel SPA route rewrite configuration
 ├── package.json
 ├── vite.config.js                   # Vite config with backend proxy
 └── README.md
@@ -53,7 +56,7 @@ client/
 
 ---
 
-## Getting Started
+## Getting Started (Local Development)
 
 ### 1. Install Dependencies
 ```bash
@@ -71,3 +74,17 @@ The application will launch on `http://localhost:5173` and proxy `/api` requests
 npm run build
 ```
 Creates an optimized production bundle in `dist/`.
+
+---
+
+## Production Deployment to [Vercel](https://vercel.com)
+
+1. Open your portfolio project in your [Vercel Dashboard](https://vercel.com/dashboard).
+2. Go to **Settings** → **General**:
+   - **Root Directory**: Set to **`client`** (click Edit, type `client`, save).
+   - **Framework Preset**: **Vite**
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. Go to **Settings** → **Environment Variables**:
+   - Add: `VITE_API_URL` = `https://your-backend.onrender.com` *(your live Render backend URL)*
+4. Go to **Deployments** and click **Redeploy**.

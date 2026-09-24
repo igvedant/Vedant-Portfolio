@@ -1,61 +1,72 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 
-export const CommandPalette = ({ isOpen, onClose, onShowToast, onOpenAdmin }) => {
+export const CommandPalette = ({
+  isOpen,
+  onClose,
+  onShowToast,
+  onOpenAdmin,
+  onSelectSection,
+}) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
   const { theme, toggleTheme } = useTheme();
+
+  const handleNav = (id) => {
+    if (onSelectSection) onSelectSection(id);
+    onClose();
+  };
 
   const allItems = [
     {
       group: 'Navigation',
       id: 'nav-intro',
       title: 'Go to Introduction',
-      badge: 'Section',
-      action: () => scrollTo('#introduction'),
+      badge: 'Tab',
+      action: () => handleNav('introduction'),
     },
     {
       group: 'Navigation',
       id: 'nav-about',
       title: 'Go to About Me',
-      badge: 'Section',
-      action: () => scrollTo('#about'),
+      badge: 'Tab',
+      action: () => handleNav('about'),
     },
     {
       group: 'Navigation',
       id: 'nav-projects',
       title: 'Go to Projects',
-      badge: 'Section',
-      action: () => scrollTo('#projects'),
+      badge: 'Tab',
+      action: () => handleNav('projects'),
     },
     {
       group: 'Navigation',
       id: 'nav-skills',
       title: 'Go to Skills & Tools',
-      badge: 'Section',
-      action: () => scrollTo('#skills'),
+      badge: 'Tab',
+      action: () => handleNav('skills'),
     },
     {
       group: 'Navigation',
       id: 'nav-experience',
       title: 'Go to Work Experience',
-      badge: 'Section',
-      action: () => scrollTo('#experience'),
+      badge: 'Tab',
+      action: () => handleNav('experience'),
     },
     {
       group: 'Navigation',
       id: 'nav-education',
       title: 'Go to Education & Certifications',
-      badge: 'Section',
-      action: () => scrollTo('#education'),
+      badge: 'Tab',
+      action: () => handleNav('education'),
     },
     {
       group: 'Navigation',
       id: 'nav-contact',
       title: 'Go to Contact',
-      badge: 'Section',
-      action: () => scrollTo('#contact'),
+      badge: 'Tab',
+      action: () => handleNav('contact'),
     },
     {
       group: 'Actions',

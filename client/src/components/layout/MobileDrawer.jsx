@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
 
-export const MobileDrawer = ({ isOpen, onClose, activeSection }) => {
+export const MobileDrawer = ({ isOpen, onClose, activeSection, onSelectSection }) => {
   const { theme, toggleTheme } = useTheme();
 
   const links = [
@@ -46,7 +46,11 @@ export const MobileDrawer = ({ isOpen, onClose, activeSection }) => {
                 <a
                   href={`#${link.id}`}
                   className={`drawer-link ${activeSection === link.id ? 'active' : ''}`}
-                  onClick={onClose}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onSelectSection) onSelectSection(link.id);
+                    onClose();
+                  }}
                 >
                   {link.label}
                 </a>

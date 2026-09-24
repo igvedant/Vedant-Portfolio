@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Sidebar = ({ activeSection }) => {
+export const Sidebar = ({ activeSection, onSelectSection }) => {
   const links = [
     {
       id: 'introduction',
@@ -86,6 +86,10 @@ export const Sidebar = ({ activeSection }) => {
             <a
               href={`#${link.id}`}
               className={`sidebar-link ${activeSection === link.id ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onSelectSection) onSelectSection(link.id);
+              }}
             >
               {link.icon}
               {link.label}
